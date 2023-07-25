@@ -1,31 +1,22 @@
 #include <bits/stdc++.h>
 
-pair<int,int> missingAndRepeating(vector<int> &A, int n)
+pair<int,int> missingAndRepeating(vector<int> &a, int n)
 {
-    // Write your code here 
-  
-    int start=0, end=0;
-  	sort(A.begin(), A.end());
-  	vector<int> vec(n+1, 0);
-    for(int i=0; i<n; i++)
-        vec[A[i]]++;
-  	int count=0;
-  	for(int i=1; i<=n; i++)
-  	{
-    		if(vec[i]>1)
-    		{
-    			count++;
-    			end=i;
-    			if(count==2)
-    				break;
-    		}
-    		else if(vec[i]==0)
-    		{
-    			count++;
-    			start=i;
-    			if(count==2)
-    				break;
-    		}
-	  }
-    return make_pair(start, end);
+    int hash[n + 1] = {0}; // hash array
+	
+    //update the hash array:
+    for (int i = 0; i < n; i++) {
+        hash[a[i]]++;
+    }
+
+    //Find the repeating and missing number:
+    int repeating = -1, missing = -1;
+    for (int i = 1; i <= n; i++) {
+        if (hash[i] == 2) repeating = i;
+        else if (hash[i] == 0) missing = i;
+
+        if (repeating != -1 && missing != -1)
+            break;
+    }
+    return make_pair(missing, repeating);
 }

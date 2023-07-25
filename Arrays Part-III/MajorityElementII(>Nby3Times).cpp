@@ -4,6 +4,7 @@ public:
         
         // There can be atmost 2 elements that can appear more than n/3 times
 
+        // applying the Extended Boyer Moore's Voting Algorithm:
         int n=nums.size();
         int cnt1=0, cnt2=0;
         int ele1=INT_MIN, ele2=INT_MIN;
@@ -30,6 +31,8 @@ public:
             }
         }
         vector<int> res;
+        // Manually check if the stored elements in
+        // ele1 and ele2 are the majority elements:
         cnt1=0, cnt2=0;
         for(int i=0; i<n; i++)
         {

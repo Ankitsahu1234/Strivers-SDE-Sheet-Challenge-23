@@ -17,7 +17,7 @@ public:
             return head;
         if(head==NULL)
             return NULL;
-        ListNode *prev=head, *curr=head, *nxt;
+        ListNode *prev=NULL, *curr=head, *nxt;
         int cnt=0;
         while(curr!=NULL && cnt<k)
         {

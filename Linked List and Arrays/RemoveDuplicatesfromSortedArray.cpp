@@ -5,6 +5,7 @@ public:
         // Method 2:
         int n=nums.size();
         auto it=unique(nums.begin(), nums.end());
+        // nums.resize(distance(nums.begin(), it));
         return it-nums.begin();
     }
 };

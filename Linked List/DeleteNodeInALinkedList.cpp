@@ -4,8 +4,8 @@ public:
         
         ListNode *curr=node;
         node->val=node->next->val;
-        curr=node->next;
-        node->next=curr->next;
+        curr=curr->next;
+        node->next=node->next->next;
         delete (curr);
     }
 };

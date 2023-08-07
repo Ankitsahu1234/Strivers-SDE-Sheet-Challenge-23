@@ -14,34 +14,43 @@ struct Node{
 };
 */
 
+Node* mergeTwoLists(Node *a, Node *b)
+{
+    Node *temp=new Node(0);
+    Node *res=temp;
+    while(a!=NULL && b!=NULL)
+    {
+        if(a->data < b->data)
+        {
+            temp->bottom=a;
+            temp=temp->bottom;
+            a=a->bottom;
+        }
+        else
+        {
+            temp->bottom=b;
+            temp=temp->bottom;
+            b=b->bottom;
+        }
+    }
+    if(a!=NULL)
+        temp->bottom=a;
+    if(b!=NULL)
+        temp->bottom=b;
+    return res->bottom;
+}
+
 /*  Function which returns the  root of 
     the flattened linked list. */
 Node *flatten(Node *root)
 {
     // Your code here
     
-    vector<int> temp;
-    Node *n=root;
-    Node *b=root;
-    while(n!=NULL)
-    {
-        temp.push_back(n->data);
-        b=n->bottom;
-        while(b!=NULL)
-        {
-            temp.push_back(b->data);
-            b=b->bottom;
-        }
-        n=n->next;
-    }
-    sort(temp.begin(), temp.end());
-    Node *head=new Node(temp[0]);
-    Node *curr=head;
-    for(int i=1; i<temp.size(); i++)
-    {
-        Node *newNode=new Node(temp[i]);
-        curr->bottom=newNode;
-        curr=curr->bottom;
-    }
-    return head;
+    // Method 2: Efficient
+    
+    if(root==NULL || root->next==NULL)
+        return root;
+    root->next=flatten(root->next);
+    root=mergeTwoLists(root, root->next);
+    return root;
 }

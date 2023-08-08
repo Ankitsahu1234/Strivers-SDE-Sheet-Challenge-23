@@ -18,7 +18,6 @@ public:
         // Method 2: Efficient
 
         vector<vector<int>> ans;
-        vector<int> ds;
         sort(nums.begin(), nums.end());
         findSubsets(nums, 0, ans);
         return ans;

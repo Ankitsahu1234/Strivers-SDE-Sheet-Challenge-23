@@ -2,7 +2,7 @@ bool isSafe(vector<vector<int>> &mat, int node, int color[], int col)
 {
     for(int k=0; k<mat.size(); k++)
     {
-        if(mat[node][k]==1 && color[k]==col)
+        if(k!=node && mat[k][node]==1 && color[k]==col)
             return false;
     }
     return true;

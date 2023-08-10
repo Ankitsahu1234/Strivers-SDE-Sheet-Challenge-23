@@ -27,11 +27,11 @@ public:
             return true;
         int r=pos[i].first;
         int c=pos[i].second;
-        for(int j=1; j<=9; j++)
+        for(char j='1; j<='9; j++)
         {
-            if(isValid(r, c, j+'0', board))
+            if(isValid(r, c, j, board))
             {
-                board[r][c]=j+'0';
+                board[r][c]=j;
                 if(solve(board, pos, i+1))
                     return true;
                 board[r][c]='.';

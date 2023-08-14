@@ -8,28 +8,13 @@ vector<int> findMedian(vector<int> &arr, int N){
 	priority_queue<int> maxHeap;
 	priority_queue<int, vector<int>, greater<int>> minHeap;
 
-	maxHeap.push(arr[0]);
-	res.push_back(arr[0]);
-
-	if(arr[1]>=arr[0])
-	{
-		minHeap.push(arr[1]);
-		res.push_back((arr[0]+arr[1])/2);
-	}
-	else
-	{
-		minHeap.push(arr[0]);
-		maxHeap.pop();
-		maxHeap.push(arr[1]);
-		res.push_back((arr[0]+arr[1])/2);
-	}
-	for(int i=2; i<N; i++)
+	for(int i=0; i<N; i++)
 	{
 		int n=maxHeap.size();
 		int m=minHeap.size();
 		if(n==m)
 		{
-			if(arr[i]>=minHeap.top())
+			if(m!=0 && arr[i]>=minHeap.top())
 			{
 				maxHeap.push(minHeap.top());
 				minHeap.pop();

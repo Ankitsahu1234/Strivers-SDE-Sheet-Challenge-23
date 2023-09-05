@@ -1,7 +1,7 @@
 int minCharsforPalindrome(string str) {
 	// Write your code here.
 	
-	// Method 2: 
+	// Method 2: 2 Pointer approach
 	
 	int i=0, j=str.length()-1;
 	int count=0;

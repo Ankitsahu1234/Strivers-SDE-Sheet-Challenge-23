@@ -1,6 +1,8 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
+
+        // Method 2:
         
         int n=s.length();
         int m=t.length();
@@ -20,3 +22,20 @@ public:
         return true;
     }
 };
+
+
+// class Solution {
+// public:
+//     bool isAnagram(string s, string t) {
+        
+//         // Method 1:
+        
+//         int n=s.length();
+//         int m=t.length();
+//         if(n!=m)
+//             return false;
+//         sort(s.begin(), s.end());
+//         sort(t.begin(), t.end());
+//         return s==t;
+//     }
+// };

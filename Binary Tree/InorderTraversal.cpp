@@ -2,37 +2,72 @@ class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
         
-        // Method 3: Iterative
-        // Using one stack and one unordered_map, this will not changed the node. Better
+        // Method 4: Iterative
+        // Using one stack and will not changed the node. Best
 
         vector<int> res;
         if(root==NULL)
             return res;
         stack<TreeNode*> st;
+        TreeNode *curr=root;
 
-        // left child has been visited: true
-        unordered_map<TreeNode*, bool> mp;
-
-        st.push(root);
-        while(!st.empty())
+        while(!st.empty() || curr!=NULL)
         {
-            TreeNode *curr=st.top();
-            if(curr->left!=NULL && mp[curr->left]==false)
+            if(curr!=NULL)
             {
-                st.push(curr->left);
-                mp[curr->left]=true;
+                st.push(curr);
+                curr=curr->left;
             }
             else
             {
-                res.push_back(curr->val);
+                TreeNode *pNode=st.top();
+                res.push_back(pNode->val);
                 st.pop();
-                if(curr->right!=NULL)
-                    st.push(curr->right);
+                curr=pNode->right;
             }
         }
         return res;
     }
 };
+
+
+
+// class Solution {
+// public:
+//     vector<int> inorderTraversal(TreeNode* root) {
+        
+//         // Method 3: Iterative
+//         // Using one stack and one unordered_map, this will not changed the node. Better
+
+//         vector<int> res;
+//         if(root==NULL)
+//             return res;
+//         stack<TreeNode*> st;
+
+//         // left child has been visited: true
+//         unordered_map<TreeNode*, bool> mp;
+
+//         st.push(root);
+//         while(!st.empty())
+//         {
+//             TreeNode *curr=st.top();
+//             if(curr->left!=NULL && mp[curr->left]==false)
+//             {
+//                 st.push(curr->left);
+//                 mp[curr->left]=true;
+//             }
+//             else
+//             {
+//                 res.push_back(curr->val);
+//                 st.pop();
+//                 if(curr->right!=NULL)
+//                     st.push(curr->right);
+//             }
+//         }
+//         return res;
+//     }
+// };
+
 
 
 // class Solution {

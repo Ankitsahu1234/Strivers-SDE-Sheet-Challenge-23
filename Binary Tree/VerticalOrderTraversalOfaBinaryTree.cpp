@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<int>> verticalTraversal(TreeNode* root) {
         
-        // Method 2:
+        // Method 2: BFS
 
         vector<vector<int>> res;
         map<int, map<int, vector<int>>> mp;

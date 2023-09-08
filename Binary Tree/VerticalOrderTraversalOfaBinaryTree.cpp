@@ -38,6 +38,42 @@ public:
 
 
 // class Solution {
+// private:
+//     void traverse(TreeNode *root, int x, int y, map<int, map<int,vector<int>>> &mp)
+//     {
+//         if(root==NULL)
+//             return;
+//         mp[x][y].push_back(root->val);
+//         traverse(root->left, x-1, y+1, mp);
+//         traverse(root->right, x+1, y+1, mp);
+//     }
+
+// public:
+//     vector<vector<int>> verticalTraversal(TreeNode* root) {
+        
+//         // Method 3: DFS
+//         // Build the mapping recursively
+
+//         vector<vector<int>> res;
+//         map<int, map<int, vector<int>>> mp;
+//         traverse(root, 0, 0, mp);
+
+//         for(auto it: mp)
+//         {
+//             vector<int> col;
+//             for(auto p: it.second)
+//             {
+//                 sort(p.second.begin(), p.second.end());
+//                 col.insert(col.end(), p.second.begin(), p.second.end());
+//             }
+//             res.push_back(col);
+//         }
+//         return res;
+//     }
+// };
+
+
+// class Solution {
 // public:
 //     vector<vector<int>> verticalTraversal(TreeNode* root) {
         

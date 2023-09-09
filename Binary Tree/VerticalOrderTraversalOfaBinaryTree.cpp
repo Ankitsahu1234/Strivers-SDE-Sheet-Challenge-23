@@ -89,13 +89,13 @@ public:
 //             for(int i=0; i<sz; i++)
 //             {
 //                 TreeNode *curr=q.front().first;
-//                 int level=q.front().second;
+//                 int line=q.front().second;
 //                 q.pop();
-//                 mp[level][l].push_back(curr->val);
+//                 mp[line][l].push_back(curr->val);
 //                 if(curr->left!=NULL)
-//                     q.push({curr->left, level-1});
+//                     q.push({curr->left, line-1});
 //                 if(curr->right!=NULL)
-//                     q.push({curr->right, level+1});
+//                     q.push({curr->right, line+1});
 //             }
 //             l++;
 //         }

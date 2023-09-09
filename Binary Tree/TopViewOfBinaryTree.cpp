@@ -12,14 +12,14 @@ vector<int> getTopView(TreeNode<int> *root)
     while(!q.empty())
     {
         TreeNode<int> *curr=q.front().first;
-        int level=q.front().second;
+        int line=q.front().second;
         q.pop();
-        if(mp.find(level)==mp.end())
-            mp[level]=curr->data;
+        if(mp.find(line)==mp.end())
+            mp[line]=curr->data;
         if(curr->left!=NULL)
-            q.push({curr->left, level-1});
+            q.push({curr->left, line-1});
         if(curr->right!=NULL)
-            q.push({curr->right, level+1});
+            q.push({curr->right, line+1});
     }
     for(auto it: mp)
     {

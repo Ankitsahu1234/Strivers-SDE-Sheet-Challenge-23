@@ -8,9 +8,9 @@ public:
         if(p==NULL && q==NULL)
             return true;
             
-        bool a=isSameTree(p->left, q->left);
-        bool b=isSameTree(p->right, q->right);
-        if(a==true && b==true)
+        bool left=isSameTree(p->left, q->left);
+        bool right=isSameTree(p->right, q->right);
+        if(left==true && right==true)
             return true;
         return false;
     }

@@ -5,7 +5,7 @@ void traverseLeft(TreeNode<int> *root, vector<int> &res)
     res.push_back(root->data);
     if(root->left!=NULL)
         traverseLeft(root->left, res);
-    if(root->left==NULL)
+    else
         traverseLeft(root->right, res);
 }
 
